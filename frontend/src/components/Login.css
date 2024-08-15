@@ -1,0 +1,113 @@
+/* frontend/src/components/Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #082614;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.logo-policlinica {
+  max-width: 160px;
+  margin-bottom: 0px;
+}
+
+.login-label {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #047857; /* Cor do texto do label */
+  margin-top: 20px;
+}
+
+.welcome-message {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color: #000000; /* Cor do texto da mensagem de boas-vindas */
+  margin-bottom: 22px;
+  margin-top: 8px;}
+
+.form-label {
+  display: flex;
+  justify-content: start;
+  color: #047857;
+}
+
+input[type='email'],
+.password-container input{
+  width: 100%;
+  padding: 10px;
+  margin: 4px 0 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding-right: 40px; 
+  outline: none; /* Remove o contorno padrão do navegador */
+  transition: border-color 0.3s ease; /* Suaviza a transição da cor da borda */
+}
+
+input:hover {
+  border-color: #047857;
+  border-radius: 4px;
+  border: 2px solid #047857;
+}
+
+input[type='email']:focus,
+input[type='password']:focus {
+  border: 2px solid #12610a;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.show-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Ajuste o espaço da borda direita */
+  transform: translateY(-70%);
+  font-size: 12px;
+  cursor: pointer;
+  color: #333; /* Cor do ícone */
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: #047857;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: #047857;
+}
+
+.login-options {
+  margin-top: 20px;
+}
+
+.login-options a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-options a:hover {
+  text-decoration: underline;
+}
