@@ -2,11 +2,11 @@ Aqui está o modelo adaptado para um sistema clínico de gerenciamento da Policl
 
 # Sistema Clínico de Gerenciamento da Policlínica
 
-![GitHub repo size](https://img.shields.io/github/repo-size/seu_usuario/nome_do_projeto?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/seu_usuario/nome_do_projeto?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/seu_usuario/nome_do_projeto?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/seu_usuario/nome_do_projeto?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/seu_usuario/nome_do_projeto?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/pedrocarvh/medical-system?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/pedrocarvh/medical-system?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/pedrocarvh/medical-system?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/pedrocarvh/medical-system?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/pedrocarvh/medical-system?style=for-the-badge)
 
 <img src="sistema_clinico.png" alt="Exemplo de interface do sistema clínico">
 
