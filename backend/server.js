@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
-
+const patientRoutes = require('./routes/patients');
+const homeRoutes = require('./routes/home');
 
 require('dotenv').config();
 
@@ -12,21 +13,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ message: 'Internal Server Error' });
+});
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
 // Use Routes
-
-
-app.use('/api/auth', authRoutes); 
-
-
-const homeRoutes = require('./routes/home'); 
-
-app.use('/api/home', homeRoutes); 
-
+app.use('/api/auth', authRoutes);
+app.use('/api/home', homeRoutes);
+app.use('/api/patients', patientRoutes);
 
 // Initialize Server
 const PORT = process.env.PORT || 5000;

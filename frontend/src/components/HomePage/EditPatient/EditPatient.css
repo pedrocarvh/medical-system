@@ -1,0 +1,71 @@
+/* Estilos específicos para o componente EditPatient */
+.edit-patient-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.edit-patient-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.edit-patient-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-patient-form label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.edit-patient-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.edit-patient-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.edit-patient-button {
+  padding: 12px 0;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-patient-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.edit-patient-button:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+.edit-patient-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}

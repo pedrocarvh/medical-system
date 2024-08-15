@@ -1,15 +1,55 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import './Home.css'; // Importa o arquivo CSS para estilização
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Home.css';
 
 const Home = () => {
-  const navigate = useNavigate(); // Usa useNavigate
+  const navigate = useNavigate();
+  const [patients, setPatients] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchPatients = async () => {
+      try {
+        const response = await axios.get('api/patients');
+        if (isMounted) {
+          setPatients(response.data);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar pacientes:', error);
+        if (isMounted) {
+          setPatients([]); // retorna um array vazio caso a requisição falhe
+        }
+      }
+    };
+
+    fetchPatients();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleLogout = () => {
     // Remove o token do localStorage
     localStorage.removeItem('token');
     // Redireciona para a página de login
     navigate('/login');
+  };
+
+  const handleNewPatient = () => {
+    navigate('/create-client');
+  };
+
+  const handleViewPatient = (cpf) => {
+    // Redireciona para a página de visualização de paciente
+    navigate(`/view-patient/${cpf}`);
+  };
+
+  const handleEditPatient = (cpf) => {
+    // Redireciona para a página de edição de paciente
+    navigate(`/edit-patient/${cpf}`);
   };
 
   return (
@@ -48,50 +88,50 @@ const Home = () => {
 
 
         <div className="content">
-  <h2>Bem-vindo à Tela Home</h2>
-  <p>Este é o painel principal, onde você pode gerenciar os pacientes.</p>
+          <h2>Bem-vindo à Tela Home</h2>
+          <p>Este é o painel principal, onde você pode gerenciar os pacientes.</p>
 
-  {/* Menu com botão para cadastrar novo paciente */}
-  <div className="menu">
-    <button onClick={handleNewPatient} className="btn-new-patient">
-      Cadastrar Novo Paciente
-    </button>
-  </div>
+          {/* Menu com botão para cadastrar novo paciente */}
+          <div className="menu">
+            <button onClick={handleNewPatient} className="btn-new-patient">
+              Cadastrar Novo Paciente
+            </button>
+          </div>
 
-  {/* Lista de pacientes */}
-  <div className="patient-list">
-    <h3>Lista de Pacientes</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Data de Nascimento</th>
-          <th>Idade</th>
-          <th>CPF</th>
-          <th>Email</th>
-          <th>Telefone</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        {patients.map((patient) => (
-          <tr key={patient.cpf}>
-            <td>{patient.name}</td>
-            <td>{patient.date_of_birth}</td>
-            <td>{patient.age}</td>
-            <td>{patient.cpf}</td>
-            <td>{patient.email}</td>
-            <td>{patient.phone}</td>
-            <td>
-              <button onClick={() => handleViewPatient(patient.cpf)}>Ver</button>
-              <button onClick={() => handleEditPatient(patient.cpf)}>Editar</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
+          {/* Lista de pacientes */}
+          <div className="patient-list">
+            <h3>Lista de Pacientes</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Data de Nascimento</th>
+                  <th>Idade</th>
+                  <th>CPF</th>
+                  <th>Email</th>
+                  <th>Telefone</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {patients.map((patient) => (
+                  <tr key={patient.cpf}>
+                    <td>{patient.name}</td>
+                    <td>{patient.date_of_birth}</td>
+                    <td>{patient.age}</td>
+                    <td>{patient.cpf}</td>
+                    <td>{patient.email}</td>
+                    <td>{patient.phone}</td>
+                    <td>
+                      <button onClick={() => handleViewPatient(patient.cpf)}>Ver</button>
+                      <button onClick={() => handleEditPatient(patient.cpf)}>Editar</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
 
 
